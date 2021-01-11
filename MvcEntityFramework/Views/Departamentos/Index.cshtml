@@ -1,0 +1,29 @@
+﻿@model List<Departamento>
+
+<h1>DI Acceso a datos</h1>
+
+@Html.ActionLink("Crear nuevo", "Create", "Departamentos")
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Número</th>
+            <th>Nombre</th>
+            <th>Localidad</th>
+            <th> Editar </th>
+            <th> Borrar </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Departamento dept in Model)
+        {
+        <tr>
+            <td> @dept.Numero  </td>
+            <td> @dept.Nombre  </td>
+            <td> @dept.Localidad  </td>
+            <td> @Html.ActionLink("Editar", "Edit", "Departamentos", new { iddept = dept.Numero}) </td>
+            <td> @Html.ActionLink("Borrar","Delete", "Departamentos", new { iddept = dept.Numero }) </td>
+        </tr>
+        }
+    </tbody>
+</table>
